@@ -1,6 +1,6 @@
 {
     "name": "zakaria-elkashef/repository-pattern",
-    "description": "This package creates an interface and repository implementation, and binds them in the RepositoryServiceProvider. The RepositoryServiceProvider is registered in config/app.php in the providers array.",
+    "description": "The Laravel Repository Pattern Package implements the repository design pattern within the Laravel framework, offering developers an efficient and organized approach to managing data. With this package, you can effortlessly create interfaces and repository classes that implement those interfaces. These classes are then bound in the RepositoryServiceProvider and registered in the config/app.php file's providers array. Experience streamlined data management and elevate your Laravel application development with ease.",
     "type": "library",
     "license": "MIT",
     "autoload": {
