@@ -73,7 +73,7 @@ class MakeRepository extends Command
         file_put_contents($repositoryPath, $repositoryTemplate);
 
 
-        
+        // make repositoryserviceprovider
         $repositoryServiceProviderPath = app_path('Providers/RepositoryServiceProvider.php');
 
         $repositoryServiceProviderNamespace = str_replace('/', '\\', 'App\Providers');
@@ -89,7 +89,7 @@ class MakeRepository extends Command
 
                 $repositoryServiceProviderContents = str_replace(
                     "public function register()\n    {",
-                    "public function register()\n    {\n        $bindingCode",
+                    "public function register()\n    {\n$bindingCode",
                     $repositoryServiceProviderContents
                 );
 
@@ -131,39 +131,8 @@ class MakeRepository extends Command
                 $this->error("RepositoryServiceProvider is already present in config/app.php.");
             }
 
-            // Bind the interface and repository in the RepositoryServiceProvider
-            $repositoryServiceProviderPath = app_path('Providers/RepositoryServiceProvider.php');
-
-            $repositoryServiceProviderNamespace = str_replace('/', '\\', 'App\Providers');
-
-            // Check if the RepositoryServiceProvider already exists
-            if (file_exists($repositoryServiceProviderPath)) {
-                $repositoryServiceProviderContents = file_get_contents($repositoryServiceProviderPath);
-
-                // Check if the binding already exists in the RepositoryServiceProvider
-                if (strpos($repositoryServiceProviderContents, "{$className}Interface::class") === false) {
-                    // Add the binding to the existing RepositoryServiceProvider
-                    $bindingCode = "        \$this->app->bind('App\Http\Interfaces\\{$className}Interface', 'App\Http\Repository\\{$className}');";
-
-                    $repositoryServiceProviderContents = str_replace(
-                        "public function register()\n    {",
-                        "public function register()\n    {\n        $bindingCode",
-                        $repositoryServiceProviderContents
-                    );
-
-                    file_put_contents($repositoryServiceProviderPath, $repositoryServiceProviderContents);
-
-                    $this->info("Interface and Repository Successfully Bind in the RepositoryServiceProvider.");
-                } else {
-                    $this->error("Interface and Repository already bound in the RepositoryServiceProvider.");
-                }
-            } else {
-                $this->error("RepositoryServiceProvider does not exist. Please run the command to create it.");
-            }
-            
         }
 
         $this->info("Interface and Repository created successfully.");
     }
 }
-
