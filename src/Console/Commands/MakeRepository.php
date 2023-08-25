@@ -116,7 +116,7 @@ class MakeRepository extends Command
             if (strpos($appConfigContent, 'App\Providers\RepositoryServiceProvider::class') === false) {
                 $providerLine = "        App\Providers\RepositoryServiceProvider::class,";
 
-                // Locate the position to add the RepositoryServiceProvider
+                // Locate the position to add the RepositoryServiKceProvider
                 $providersPosition = strpos($appConfigContent, 'ServiceProvider::defaultProviders()->merge([');
                 if ($providersPosition !== false) {
                     $providersPosition += strlen('ServiceProvider::defaultProviders()->merge([');

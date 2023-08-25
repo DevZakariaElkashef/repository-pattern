@@ -1,6 +1,6 @@
 {
     "name": "zakaria-elkashef/repository-pattern",
-    "description": "This package create interface and repistory implment that interface and bind them in repistoryservice provider and regiser the repositoryserviceprovdier in config/app.php in providers array",
+    "description": "This package creates an interface and repository implementation, and binds them in the RepositoryServiceProvider. The RepositoryServiceProvider is registered in config/app.php in the providers array.",
     "type": "library",
     "license": "MIT",
     "autoload": {
@@ -18,7 +18,7 @@
     "minimum-stability": "dev",
     "prefer-stable": true,
     "extra": {
-        "Laravel": {
+        "laravel": {
             "providers": [
                 "ZakariaElkashef\\RepositoryPattern\\RepositoryPatternServiceProvider"
             ]
