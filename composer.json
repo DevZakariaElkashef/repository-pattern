@@ -1,6 +1,6 @@
 {
     "name": "zakaria-elkashef/repository-pattern",
-    "description": "The main idea of using Repository Pattern in a Laravel application is to create a bridge between models and controllers. In other words, to decouple the hard dependencies of models from the controllers. The model should not be responsible for communicating with or extracting data from the database. This package create interface and repistory implment that interface and bind them in repistoryservice provider and regiser the repositoryserviceprovdier in config/app.php in providers array",
+    "description": "This package create interface and repistory implment that interface and bind them in repistoryservice provider and regiser the repositoryserviceprovdier in config/app.php in providers array",
     "type": "library",
     "license": "MIT",
     "autoload": {
