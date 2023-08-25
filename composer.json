@@ -14,7 +14,6 @@
             "email": "dev.zakariaelkashef@gmail.com"
         }
     ],
-    "minimum-stability": "dev",
     "require": {},
     "extra": {
         "Laravel": {
