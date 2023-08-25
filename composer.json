@@ -20,7 +20,7 @@
     "extra": {
         "Laravel": {
             "providers": [
-                "ZakariaElkashef\\RepositoryPattern\\ServiceProvider"
+                "ZakariaElkashef\\RepositoryPattern\\RepositoryPatternServiceProvider"
             ]
         }
     }
