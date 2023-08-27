@@ -39,7 +39,7 @@ class MakeRepository extends Command
     
 
         $interfacePath = app_path('Http/Interfaces/' . $className . 'Interface.php');
-        $repositoryPath = app_path('Http/Repository/' . $className . '.php');
+        $repositoryPath = app_path('Http/Repositories/' . $className . '.php');
 
         if (file_exists($interfacePath)) {
             $this->error("Interface already exists.");
@@ -52,7 +52,7 @@ class MakeRepository extends Command
         }
 
         $interfaceNamespace = str_replace('/', '\\', 'App\Http\Interfaces');
-        $repositoryNamespace = str_replace('/', '\\', 'App\Http\Repository');
+        $repositoryNamespace = str_replace('/', '\\', 'App\Http\Repositories');
 
         $interfaceTemplate = "<?php\n\nnamespace $interfaceNamespace;\n\ninterface {$className}Interface\n{\n    // Interface methods...\n}\n";
         $repositoryTemplate = "<?php\n\nnamespace $repositoryNamespace;\n\nuse $interfaceNamespace\\{$className}Interface;\n\nclass {$className} implements {$className}Interface\n{\n    // Repository methods...\n}\n";
@@ -85,7 +85,7 @@ class MakeRepository extends Command
             // Check if the binding already exists in the RepositoryServiceProvider
             if (strpos($repositoryServiceProviderContents, "{$className}Interface::class") === false) {
                 // Add the binding to the existing RepositoryServiceProvider
-                $bindingCode = "        \$this->app->bind('App\Http\Interfaces\\{$className}Interface', 'App\Http\Repository\\{$className}');";
+                $bindingCode = "        \$this->app->bind('App\Http\Interfaces\\{$className}Interface', 'App\Http\Repositories\\{$className}');";
 
                 $repositoryServiceProviderContents = str_replace(
                     "public function register()\n    {",
